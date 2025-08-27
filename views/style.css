@@ -1,0 +1,242 @@
+/* eseentials */
+
+* {
+  font-family: sans-serif;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+}
+
+header {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 40px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px black;
+  background-color: rgba(210, 105, 30);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* styling */
+
+main {
+  display: flex;
+  height: calc(100vh - 40px);
+  width: 100%;
+  align-items: center;
+}
+
+nav {
+  background-color: rgb(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 30px;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  box-shadow:  0 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+nav a {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+  color: rgb(210, 105, 30) !important;
+  margin: 0;
+  padding: 0;
+}
+
+.newMeal {
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 10px;
+  border-right: 1px solid black;
+}
+
+.newMeal h1 {
+  flex: none;
+  margin: 0 auto;
+}
+
+.newMeal ul {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  margin: 0;
+}
+
+.newMeal li {
+  color: black;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.newMeal i {
+  color: red;
+}
+
+.newMeal li:hover {
+  background-color: #f0f0f0;
+}
+
+.seeRecipeDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
+  padding-top: 10px;
+  background-color: #ffffff;
+  flex: 1;
+}
+
+.seeRecipeDiv * {
+  color: black;
+}
+
+#seeRecipeDiv {
+  text-align: left;
+  width: 100%;
+  padding-left: 20px;
+}
+
+#seeRecipeDiv *{
+  text-align: left;
+  width: 100%;
+}
+
+/* login */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(210, 105, 30);
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login input {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ffe8a1;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.login input:focus {
+  outline: none;
+}
+
+.login textarea {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ffe8a1;
+  color: #000;
+  transition: all 0.3s ease;
+  min-height: 200px;
+  min-width: 400px;
+}
+
+.login textarea:focus {
+  outline: none;
+}
+
+.login h1 {
+  margin: 0;
+  color: white !important;
+}
+
+.login button {
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 3px rgb(0, 128, 0, 0.3);
+}
+
+.login input:hover,
+.login button:hover{
+  border-radius: 20px;
+}
+
+.login p a{
+  color: #000;
+  text-decoration: underline;
+}
+
+.divLogin h1 {
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 5px;
+  background-color: rgb(0, 0, 0, 0.1);
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.divLogin h1:hover {
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+}

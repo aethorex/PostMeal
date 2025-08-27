@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="divLogin">
+        <% if (user) { %>
+        <h1><a href="/logout"><%= user.name %></a></h1>
+        <% } else { %>
+        <h1><a href="/login">Login</a></h1>
+        <% } %>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/add">Add Meal</a></li>
+          <li><a href="/myRes">My Recipes</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="newMeal">
+        <h1>New Meals</h1>
+        <ul>
+          <% meals.forEach(meal => { %>
+          <li id="meal-<%= meal._id %>" onclick="showRecipe('<%= meal._id %>')"><%= meal.title %> <i class="fa-solid fa-trash" onclick="delRecipe('<%= meal._id %>')"></i></li>
+          <% }) %>
+        </ul>
+      </div>
+      <div class="seeRecipeDiv">
+        <h1>Meals</h1>
+        <div id="seeRecipeDiv" class="seeRecipeDiv">
+          <h2 id="title"></h2>
+          <p id="description"></p>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    async function showRecipe(id) {
+      const response = await fetch(`/recipe/${id}`);
+      const data = await response.json();
+      document.getElementById("title").innerText = data.title;
+      document.getElementById("description").innerText = data.meal;
+    }
+
+    async function delRecipe(id) {
+      const response = await fetch(`/del/${id}`);
+      const data = await response.json();
+      document.getElementById("description").innerText = data.message;
+
+      if (data.message === "Recipe deleted successfully.") {
+        // Remove the meal from the list without reloading
+        const mealLi = document.getElementById(`meal-${id}`);
+        if (mealLi) mealLi.remove();
+        document.getElementById("title").innerText = "";
+      }
+    }
+  </script>
+</html>
